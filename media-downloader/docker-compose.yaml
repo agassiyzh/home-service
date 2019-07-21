@@ -5,8 +5,8 @@ services:
     image: linuxserver/jackett
     container_name: jackett
     volumes:
-      - <CONFIG_DIR>/radarr/:/config
-      - <CONTENT_DIR>:/downloads
+      - ${CONFIG_DIR}/radarr/:/config
+      - ${CONTENT_DIR}:/downloads
     ports:
       - 9117:9117
     restart: unless-stopped
@@ -15,9 +15,9 @@ services:
     image: linuxserver/transmission
     container_name: transmission
     volumes:
-      - <CONFIG_DIR>/transmission:/config
-      - <CONTENT_DIR>:/downloads
-      - <CONTENT_DIR>/watch-torrents:/watch
+      - ${CONFIG_DIR}/transmission:/config
+      - ${CONTENT_DIR}:/downloads
+      - ${CONTENT_DIR}/watch-torrents:/watch
     ports:
       - 9091:9091
       - 51413:51413
@@ -28,9 +28,9 @@ services:
     image: linuxserver/radarr
     container_name: radarr
     volumes:
-      - <CONFIG_DIR>/radarr:/config
-      - <CONTENT_DIR>/movies:/movies
-      - <CONTENT_DIR>:/downloads
+      - ${CONFIG_DIR}/radarr:/config
+      - ${CONTENT_DIR}/movies:/movies
+      - ${CONTENT_DIR}:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -39,9 +39,9 @@ services:
     image: linuxserver/sonarr
     container_name: sonarr
     volumes:
-      - <CONFIG_DIR>/sonarr:/config
-      - <CONTENT_DIR>/tvseries:/tv
-      - <CONTENT_DIR>:/downloads
+      - ${CONFIG_DIR}/sonarr:/config
+      - ${CONTENT_DIR}/tvseries:/tv
+      - ${CONTENT_DIR}:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
